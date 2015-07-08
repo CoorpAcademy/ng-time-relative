@@ -20,7 +20,7 @@ exports = module.exports = function(module) {
 
     run(['moment', 'timeRelativeConfig', function(moment, timeRelativeConfig) {
       angular.forEach(timeRelativeConfig.calendar, function(translation, lang) {
-        moment.lang(lang, {calendar: translation});
+        moment.locale(lang, {calendar: translation});
       });
     }]);
 };
@@ -31,7 +31,7 @@ if ('angular' in global) {
   var mod = angular.module('timeRelative', []);
   if ('moment' in global) {
     mod.constant('moment', moment);
-    moment.lang('en', {});
+    moment.locale('en', {});
   }
   exports(mod);
 }
